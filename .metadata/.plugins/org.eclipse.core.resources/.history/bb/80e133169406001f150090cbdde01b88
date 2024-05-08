@@ -1,0 +1,5 @@
+package com.jsp.userapp.entity;
+
+public class User {
+
+}

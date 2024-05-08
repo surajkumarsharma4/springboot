@@ -1,0 +1,21 @@
+package com.jsp.userapp.exception;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.jsp.userapp.util.ResponseStructure;
+
+@RestControllerAdvice
+public class ExceptionHandling {
+
+	@ExceptionHandler(UserException.class)
+	public ResponseEntity<ResponseStructure<String>> userException(UserException e) {
+		ResponseStructure<String> structure=new ResponseStructure<>();
+		structure.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR.value());
+		structure.setMessage("error occured");
+		structure.setData(e.getMessage());
+		return new ResponseEntity<ResponseStructure<String>>(structure,HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+}

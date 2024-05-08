@@ -1,0 +1,5 @@
+package com.jsp.studentjpa.entity;
+
+public class Student {
+
+}

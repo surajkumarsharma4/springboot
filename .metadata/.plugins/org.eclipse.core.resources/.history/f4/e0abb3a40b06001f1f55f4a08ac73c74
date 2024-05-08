@@ -1,0 +1,18 @@
+package com.jsp.studentjpa.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import com.jsp.studentjpa.entity.Student;
+import com.jsp.studentjpa.repository.StudentService;
+
+public class StudentController {
+	@Autowired
+	StudentService studentService;
+	
+	@PostMapping("/saveStudent")
+	public Student saveStudent(Student student) {
+		return studentService.saveStudent(student);
+	}
+	
+}

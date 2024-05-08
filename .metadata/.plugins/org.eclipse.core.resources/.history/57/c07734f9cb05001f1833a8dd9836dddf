@@ -1,0 +1,5 @@
+package com.jsp.springdatajpa;
+
+public class Car {
+
+}

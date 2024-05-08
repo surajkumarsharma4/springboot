@@ -1,0 +1,5 @@
+package com.jsp.jsonexamples.entity;
+
+public class Student {
+
+}

@@ -1,0 +1,5 @@
+package com.jsp.userapp.controller;
+
+public class UserController {
+
+}

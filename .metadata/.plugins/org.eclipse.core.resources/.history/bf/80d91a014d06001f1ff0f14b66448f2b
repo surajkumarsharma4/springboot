@@ -1,0 +1,15 @@
+package com.jsp.studentjpa.repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.jsp.studentjpa.entity.Student;
+@Service
+public class StudentService {
+	@Autowired
+	StudentRepository studentRepository;
+	
+	public Student saveStudent(Student student) {
+		return studentRepository.save(student);
+	}
+}

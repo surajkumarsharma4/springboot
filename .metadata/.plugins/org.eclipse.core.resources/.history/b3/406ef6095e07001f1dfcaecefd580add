@@ -1,0 +1,5 @@
+package com.jsp.userapp.util;
+
+public class ResponseStructure {
+
+}

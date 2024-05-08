@@ -1,0 +1,40 @@
+package com.jsp.userapp.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+
+import com.jsp.userapp.entity.User;
+import com.jsp.userapp.repository.UserRepository;
+import com.jsp.userapp.util.ResponseStructure;
+
+@Service
+public class UserService {
+	@Autowired
+	UserRepository userRepository;
+	
+	public User saveUser( User user) {
+		return userRepository.save(user);
+	}
+	
+	public ResponseStructure<List<User>> findAllUser() {
+		return userRepository.findAll();
+	}
+	public ResponseStructure<User> findUserById(int id) {
+		Optional<User> optional=userRepository.findById(id);
+		if(optional.isPresent()) {
+			User user=optional.get();
+			ResponseStructure<User>  structure=new ResponseStructure<>();
+			structure.setStatusCode(HttpStatus.OK.value());
+			structure.setMessage("user is found");
+			structure.setData(user);
+			return structure;
+		}
+		else {
+			throw new NullPointerException("user not found");
+		}
+	}
+}

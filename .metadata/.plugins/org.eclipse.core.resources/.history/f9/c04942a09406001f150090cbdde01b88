@@ -1,0 +1,5 @@
+package com.jsp.userapp.service;
+
+public class UserService {
+
+}

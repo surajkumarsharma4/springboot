@@ -1,0 +1,51 @@
+package com.jsp.springdatajpa.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.jsp.springdatajpa.dao.CarService;
+import com.jsp.springdatajpa.entity.Car;
+
+@RestController
+public class CarController {
+	@Autowired
+	CarService carService;
+	
+	@PostMapping("/save")
+	public Car saveCar( @RequestBody Car car) {
+		return carService.saveCar(car);
+	}
+	
+	@GetMapping("/carById/{id}")
+	public Optional<Car> findCarById(@PathVariable int id) {
+		return carService.findCarById(id);
+	}
+	
+	@GetMapping("/findAllCar")
+	public List<Car> findAllCar() {
+		return carService.findAllCar();
+	}
+	
+	@DeleteMapping("/deleteCarById/{id}")
+	public void deleteCarById(int id) {
+		carService.deleteCarById(id);
+	}
+
+	
+	
+	
+	
+//	@GetMapping("/findall/{brand}")
+//	public List<Car> findByBrand(@PathVariable String brand) {
+//		return carService.findByBrand(brand);
+//	}
+	
+}

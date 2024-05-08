@@ -1,0 +1,12 @@
+package com.jsp.springdatajpa.dao;
+
+import org.springframework.stereotype.Service;
+
+import com.jsp.springdatajpa.entity.Car;
+
+@Service
+public class CarService {
+	public Car saveCar(Car car) {
+		
+	}
+}
